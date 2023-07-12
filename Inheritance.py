@@ -94,3 +94,80 @@ print(rakesh.fullname)
 
 
 '''
+
+
+'''def add(a):
+    def inner(b):
+        return a + b
+    return inner
+# firstadd = add(5)
+# secondadd = add(10)
+# thirdadd = add(15)
+# final1st = firstadd(6)
+# final2nd = secondadd(12)
+# final3rd = thirdadd(18)
+# print(final1st,final2nd,final3rd)
+print((add(5))(6))
+print(add("abc")("def"))'''
+
+'''
+### Getter and setter decorator in python
+class person:
+    def __init__(self,name,age):
+        self._name = name
+        self._age = age
+
+    @property
+    def name(self):
+        return self._name
+    
+    @name.setter
+    def name(self,value):
+        self._name = value
+
+    @property
+    def age(self):
+        return self._age
+    
+    @age.setter
+    def age(self,value):
+        self._age = value
+
+person1 = person("Kripesh", 24)
+person2 = person("Niraj", 32)
+print(person1.name)
+person1.name = "Ritesh"
+print(person1.name,person1.age, person2.name, person2.age)'''
+
+'''### difference between using getter and without using getter
+class Employee:
+    def __init__(self,name,age):
+        self.name = name
+        self.age = age
+    def okay(self):
+        return self.name
+    @property
+    def okay2(self):
+        return self.name
+    @staticmethod
+    def sum1(a,b):
+        return a+b
+employee1 = Employee("Birat", 24)
+print(employee1.okay())
+print(employee1.okay2)
+
+print(Employee.sum1(1,5))'''
+
+def outer(func):
+    def inner(a,b):
+        result = func(3,4)
+        return result
+    return inner
+
+@outer
+def add(c,d):
+    return c+d
+
+result = add(12,23)
+print(result)
+
